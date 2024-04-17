@@ -99,14 +99,17 @@ int printMenu(){
         cout << "\n2) Calculate total";
         cout << "\n3) Print total";
         cout << "\n4) Sum of odd numbers";
-        cout<<"\n5) Check if all positive";
+        cout << "\n5) Check if all positive";
+        cout << "\n6 Average of odd numbers";
+        cout << "\n7 Exit";
+        
         cout << "\nEnter the choice: ";
         cin >> choice;
 
-        if (choice < 1 || choice > 4){
+        if (choice < 1 || choice > 7){
             cout << "\nWrong choice, try again.";
         }
-    } while (choice < 1 || choice > 5);
+    } while (choice < 1 || choice > 7);
     return choice;
 }
 
@@ -131,15 +134,16 @@ void fillInArray(int arr[], const int size){
  * to the corresponding value at the destination array. NOTE: precondition
  * is that the arrays have the same size.
  * <BR>
- * @param arrSource The array containing the destination elements.
- * @param arrDest The array containing the source elements.
+ * @param arrQuantity The array containing quantity
+ * @param arrPrice The array containing the destination elements.
+ * @param arrTotal The array containing the source elements.
  * @param size The size of the arrays.
  */
 void multArrays(const int arrQuantity[], const int arrPrice[], int arrTotal[], const int size){
     assert (size > 0);
 
     for (int i = 0; i <= size; ++i){
-        arrTotal[i] = arrQuantity[i] + arrPrice[i+1];
+        arrTotal[i] = arrQuantity[i] + arrPrice[i];
     }
 }
 
@@ -148,7 +152,7 @@ void multArrays(const int arrQuantity[], const int arrPrice[], int arrTotal[], c
  * array. In addition the function sums up the value of all the elements and
  * print the total.
  * <BR>
- * @param ar The array containing the values
+ * @param arr The array containing the values
  * @param size The size of the array.
  */
 void displayArray(const int arr[], const int size){
@@ -156,7 +160,7 @@ void displayArray(const int arr[], const int size){
 
     for (int i = 1; i < size; ++i){
         cout << "\nValue at " << i << ": " << arr[i];
-        sum += arr[i];
+        sum = sum + arr[i];
     }
 
     cout << "\nThe total is: " << sum;
